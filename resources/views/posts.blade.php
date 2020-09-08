@@ -9,7 +9,7 @@
         </span>
         <div class="py-3 my-8 w-1/2 mx-auto">
             @foreach ($posts as $post)
-                @can('view-post', $post)
+                @can('user-can-view-any-post', App\Post::class)
                     <div class="my-4 py-2">
                         <span>
                             <span

@@ -13,7 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        // Post::class => 'App\Policies\PostPolicy',
+        PostPolicy::class
     ];
 
     /**
@@ -29,14 +30,16 @@ class AuthServiceProvider extends ServiceProvider
         //     return $user->isSuperAdmin() ? true : null;
         // });
 
-        Gate::define('view-post', function($user, $post){
-            return $user->id === $post->user->id;
-        });
+        // Gate::define('view-post', function($user, $post){
+        //     return $user->id === $post->user->id;
+        // });
 
         // Gate::define('review-post', function($user, $post){
         //     return $user->id === $post->user->id;
         // });
 
+
+        Gate::define('user-can-view-any-post', 'App\Policies\PostPolicy@viewAny');
 
         // Gate::after(function($user){
         //     return $user->isSuperAdmin() ? true : null;
