@@ -17,7 +17,7 @@
                         {{ __('Reset Password') }}
                     </div>
 
-                    <form class="w-full p-6" method="POST" action="{{ route('password.email') }}">
+                    <form class="w-full p-6" method="POST" action="{{ route('admin.password.email') }}">
                         @csrf
 
                         <div class="flex flex-wrap mb-6">

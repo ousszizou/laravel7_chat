@@ -53,8 +53,8 @@
                                 {{ __('Login') }}
                             </button>
 
-                            @if (Route::has('password.request'))
-                                <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
+                            @if (Route::has('admin.password.request'))
+                                <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" href="{{ route('admin.password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif

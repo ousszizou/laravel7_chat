@@ -22,11 +22,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group([
     "namespace" => "Auth",
-    "prefix" => "admin"
+    "prefix" => "admin",
 ],function() {
     Route::get("login", "AdminLoginController@showLoginForm")->name("admin.show_login");
     Route::post("login", "AdminLoginController@login")->name("admin.do_login");
     Route::post("logout", "AdminLoginController@logout")->name("admin.logout");
+
+    // password reset
+    Route::get('/password/reset', 'ForgotPasswordAdminController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/email', 'ForgotPasswordAdminController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('/password/reset/{token}', 'ResetPasswordAdminController@showResetForm')->name('admin.password.reset');
+    Route::post('/password/reset', 'ResetPasswordAdminController@reset')->name('admin.password.update');
 });
 
 Route::group([
