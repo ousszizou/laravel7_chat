@@ -4,8 +4,6 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-use Spatie\Permission\Exceptions\UnauthorizedException;
-use App\Admin;
 
 class Handler extends ExceptionHandler
 {
@@ -52,12 +50,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof UnauthorizedException) {
-            if (\Auth::user() instanceof Admin) {
-                return redirect()->route('dashboard');
-            }
-            return redirect()->route('home');
-        }
         return parent::render($request, $exception);
     }
 }
