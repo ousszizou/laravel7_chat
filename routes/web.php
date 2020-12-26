@@ -49,3 +49,12 @@ Route::group([
         return "moderate";
     })->middleware("role:administrator|moderator");
 });
+
+Route::group(["prefix" => "{lang}"], function() {
+    Route::get("/", function() {
+        echo __("test");
+    });
+    Route::get("/test", function() {
+        return view("test");
+    })->name("test-lang");
+});

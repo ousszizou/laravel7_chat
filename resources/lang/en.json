@@ -1,0 +1,5 @@
+{
+    "welcome": "welcome, :NAME",
+    "test": "test",
+    "apples": "{0} There are none|{1} There is one|[2,*] There are :count"
+}
