@@ -49,3 +49,9 @@ Route::group([
         return "moderate";
     })->middleware("role:administrator|moderator");
 });
+
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function() {
+    Route::get("test", function() {
+        return view("test");
+    });
+});
