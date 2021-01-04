@@ -268,7 +268,7 @@ To see the course files, make sure you select the appropriate branch. E.g. to se
   * Defining Controllers
   * Blueprint Configuration
 
-* Localization (with & without packages: mcamara) []
+* Localization (without packages) [*]
   * Add Progress.md file to repo.
   * Be sure you are in develop_app1
   * Create a new branch for localization without package
@@ -285,8 +285,24 @@ To see the course files, make sure you select the appropriate branch. E.g. to se
       ```
     - create a test view (resources/views/)
 
-
-
+* Localization (with packages: mcamara) []
+  * Be sure you are in develop_app1
+  * Create a new branch for localization with mcamara
+    ```console
+      git checkout -b app1_localization_package_mcamara
+      ```
+  * Install the package via composer
+    ```console
+      composer require mcamara/laravel-localization
+      ```
+  * Publish config file
+    ```console
+      php artisan vendor:publish --provider="Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider"
+      ```
+  * Register Middleware in Kernel.php file
+  * Edit supportedLocales in config/laravellocalization.php
+    * comment es (spanish) & uncomment ar (arabic)
+  * Play with it (mcamara) by samples
 
 ### App2 (Laravel with Vuejs)
 
